@@ -11,8 +11,8 @@ var request = require("request");
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
-app.use(express.json()); // to support JSON-encoded bodies
-app.use(express.urlencoded()); // to support URL-encoded bodies
+//app.use(express.json()); // to support JSON-encoded bodies
+//app.use(express.urlencoded()); // to support URL-encoded bodies
 
 var port = process.env.PORT || 8080; // set our port
 
@@ -50,7 +50,7 @@ faceRec.post('/', function(req, res) {
             'content-type': 'application/json',
             'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
-        body: { url: req.body },
+        body: { url: req },
         json: true
     };
 
