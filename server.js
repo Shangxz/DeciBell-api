@@ -29,6 +29,8 @@ router.post('/', function(req, res) {
 
 faceRec.post('/', function(req, res) {
 
+    console.log("Hello");
+
     console.log(req.body);
 
     var request = require("request");
