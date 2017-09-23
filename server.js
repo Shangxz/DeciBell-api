@@ -23,7 +23,7 @@ var faceRec = express.Router();
 var objectname = "";
 //
 
-router.post('/', function(req, res) {
+router.get('/', function(req, res) {
     console.long("hello");
 });
 
@@ -58,6 +58,10 @@ faceRec.get('/', function(req, res) {
     });
 
 });
+
+app.listen(3000, function() {
+    console.log('Example app listening on port 3000!')
+})
 
 
 app.use('/api', router);
