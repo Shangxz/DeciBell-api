@@ -54,6 +54,8 @@ faceRec.post('/', function(req, res) {
         json: true
     };
 
+    console.log(options.body)
+
     request(options, function(error, response, body) {
         if (error) throw new Error(error);
         res.json(body);
