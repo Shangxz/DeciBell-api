@@ -60,7 +60,7 @@ faceRec.get('/', function(req, res) {
 });
 
 app.use('/api', router);
-faceRec.use('/face', faceRec);
+app.use('/face', faceRec);
 
 // START THE SERVER
 // =============================================================================
