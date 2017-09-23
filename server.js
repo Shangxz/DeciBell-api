@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var request = require("request");
 
+const FaceApi = require('node-mscs-face')
+
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,8 +54,6 @@ faceRec.post('/', function(req, res) {
         if (error) throw new Error(error);
         res.json(body);
     });
-
-
 
 });
 

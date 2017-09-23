@@ -1,0 +1,43 @@
+{
+  "name": "node-mscs-face",
+  "version": "0.1.1",
+  "description": "Javascript Wrapper for Microsoft Cognitive Services Face API.",
+  "main": "index.js",
+  "scripts": {
+    "detect-demo": "node ./examples/detect-example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuabingquan/node-mscs-face.git"
+  },
+  "keywords": [
+    "cognitive",
+    "services",
+    "microsoft",
+    "face",
+    "facial",
+    "recognition",
+    "unofficial"
+  ],
+  "author": "Chua Bing Quan",
+  "license": "GPL-3.0",
+  "contributors": [
+    {
+      "name": "Chua Bing Quan",
+      "email": "chipneverdies@gmail.com"
+    },
+    {
+      "name": "Sum Yuan Loong",
+      "email": "sumyuanloong@gmail.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/chuabingquan/node-mscs-face/issues"
+  },
+  "homepage": "https://github.com/chuabingquan/node-mscs-face#readme",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4",
+    "semver": "^5.4.1"
+  }
+}
