@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
 
 faceRec.post('/', function(req, res) {
 
-    console.log("Hello");
+    // console.log("Hello");
 
     console.log(req.body);
 
@@ -54,9 +54,9 @@ faceRec.post('/', function(req, res) {
         json: true
     };
 
-    console.log(options.body)
+    // console.log(options.body)
 
-    request(options, function(error, response, body) {
+    request(options, function(error, res, body) {
         if (error) throw new Error(error);
         res.json(body);
     });
