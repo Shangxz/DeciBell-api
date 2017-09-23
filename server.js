@@ -22,10 +22,55 @@ var objectname = "";
 //
 
 router.post('/', function(req, res) {
-    console.log("Hello World!");
+
 });
 
 faceRec.post('/', function(req, res) {
+
+    console.log(req.body);
+
+    var request = require("request");
+
+    var options = {
+        method: 'POST',
+        url: 'https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false',
+        qs: {
+            visualFeatures: 'Categories,tags,faces,description',
+            language: 'en'
+        },
+        headers: {
+            'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
+            'cache-control': 'no-cache',
+            'content-type': 'application/json',
+            'ocp-apim-subscription-key': 'ea327b22678947ba8301895feda4cecc'
+        },
+        body: { url: req.body },
+        json: true
+    };
+
+    request(options, function(error, response, body) {
+        if (error) throw new Error(error);
+
+        res.json(body);
+
+    });
+
+    var options1 = {
+        method: 'POST',
+        url: 'https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false',
+        qs: {
+            visualFeatures: 'Categories,tags,faces,description',
+            language: 'en'
+        },
+        headers: {
+            'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
+            'cache-control': 'no-cache',
+            'content-type': 'application/json',
+            'ocp-apim-subscription-key': 'ea327b22678947ba8301895feda4cecc'
+        },
+        body: { url: req.body },
+        json: true
+    };
 
 });
 
