@@ -22,7 +22,7 @@ var objectname = "";
 //
 
 router.post('/', function(req, res) {
-
+    app.res("Hello World!")
 });
 
 faceRec.post('/', function(req, res) {
