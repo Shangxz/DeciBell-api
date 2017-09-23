@@ -31,7 +31,7 @@ faceRec.post('/', function(req, res) {
 
     console.log("Hello");
 
-    console.log(req.body);
+    console.log(req);
 
     var request = require("request");
 
@@ -46,9 +46,9 @@ faceRec.post('/', function(req, res) {
             'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
             'cache-control': 'no-cache',
             'content-type': 'application/json',
-            'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
+            : '60c7f169fbe24c12b5990a8916315bd7'
         },
-        body: { "url": req.body },
+        body: { url: req.body },
         json: true
     };
 
