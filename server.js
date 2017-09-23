@@ -51,6 +51,7 @@ faceRec.post('/', function(req, res) {
             'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
         body: { url: req },
+        json: true
     };
 
     request(options, function(error, response, body) {
