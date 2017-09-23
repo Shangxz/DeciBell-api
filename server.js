@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
     console.log("hello");
 });
 
-faceRec.get('/', function(req, res) {
+faceRec.post('/', function(req, res) {
 
     console.log("Hello");
 
