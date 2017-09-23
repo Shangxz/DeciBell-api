@@ -33,7 +33,7 @@ faceRec.post('/', function(req, res) {
 
     console.log("Hello");
 
-    console.log(req.url);
+    console.log(req.body);
 
     var request = require("request");
 
@@ -50,7 +50,7 @@ faceRec.post('/', function(req, res) {
             'content-type': 'application/json',
             'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
-        body: { url: req.url },
+        body: { url: req.body },
         json: true
     };
 
