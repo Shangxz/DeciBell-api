@@ -46,7 +46,7 @@ faceRec.get('/', function(req, res) {
             'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
             'cache-control': 'no-cache',
             'content-type': 'application/json',
-            'ocp-apim-subscription-key': '21aa405417a44f0e957e62e4281a6cc8'
+            'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
         body: { url: req.body },
         json: true
@@ -54,13 +54,13 @@ faceRec.get('/', function(req, res) {
 
     request(options, function(error, response, body) {
         if (error) throw new Error(error);
-        res.json(body);
+        res.response(body);
     });
 
 });
 
-app.listen(3000, function() {
-    console.log('Example app listening on port 3000!')
+app.listen(8080, function() {
+    console.log('Example app listening on port 8080!')
 })
 
 
