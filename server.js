@@ -24,7 +24,7 @@ var objectname = "";
 //
 
 router.post('/', function(req, res) {
-
+    console.long("hello");
 });
 
 faceRec.get('/', function(req, res) {
