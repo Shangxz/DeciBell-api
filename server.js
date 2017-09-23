@@ -33,7 +33,7 @@ faceRec.post('/', function(req, res) {
 
     // console.log("Hello");
 
-    console.log(req.body.value);
+    console.log(req.body);
 
     var request = require("request");
 
@@ -56,7 +56,7 @@ faceRec.post('/', function(req, res) {
 
     // console.log(options.body)
 
-    request(options, function(error, res, body) {
+    request(options, function(error, response, body) {
         if (error) throw new Error(error);
         console.log(body.parse);
     });
