@@ -42,7 +42,7 @@ faceRec.post('/', function(req, res) {
             'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
             'cache-control': 'no-cache',
             'content-type': 'application/json',
-            'ocp-apim-subscription-key': 'ea327b22678947ba8301895feda4cecc'
+            'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
         body: { url: req.body },
         json: true
