@@ -10,7 +10,7 @@ var request = require("request");
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
+app.use(bodyParser.json());
 //app.use(express.json()); // to support JSON-encoded bodies
 //app.use(express.urlencoded()); // to support URL-encoded bodies
 
