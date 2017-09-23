@@ -54,7 +54,7 @@ faceRec.get('/', function(req, res) {
 
     request(options, function(error, response, body) {
         if (error) throw new Error(error);
-        res.response(body);
+        res.json(body);
     });
 
 });
