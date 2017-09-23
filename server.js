@@ -25,8 +25,62 @@ var faceRec = express.Router();
 var objectname = "";
 //
 
-router.get('/', function(req, res) {
-    console.log("hello");
+router.post('/', function(req, res) {
+    objectname = "";
+
+    var options = {
+        method: 'POST',
+        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze',
+        qs: {
+            visualFeatures: 'Categories,tags,faces,description',
+            language: 'en'
+        },
+        headers: {
+            'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
+            'cache-control': 'no-cache',
+            'content-type': 'application/json',
+            'ocp-apim-subscription-key': 'e23daf60d538452c9360c5e95754135f'
+        },
+        body: { url: req.body },
+        json: true
+    };
+
+    var options1 = {
+        method: 'POST',
+        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=unk&detectOrientation =true',
+        headers: {
+            'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
+            'cache-control': 'no-cache',
+            'content-type': 'application/json',
+            'ocp-apim-subscription-key': 'e23daf60d538452c9360c5e95754135f'
+        },
+        body: { url: req.body },
+        json: true
+    };
+
+    request(options, function(error, response, body) {
+        if (error) throw new Error(error);
+
+        request(options1, function(error, response, body) {
+            if (error) throw new Error(error);
+
+            for (var k = 0; k < body.regions.length; k++) {
+                var region = body.regions[k];
+                for (var j = 0; j < region.lines.length; j++) {
+                    var line = region.lines[j];
+                    for (var i = 0; i < line.words.length; i++) {
+                        var word = line.words[i].text;
+                        objectname += " " + word;
+                    }
+                }
+            }
+            console.log(objectname);
+            res.json(objectname);
+        });
+
+        objectname += body.categories[0].name;
+
+    });
 });
 
 faceRec.post('/', function(req, res) {
