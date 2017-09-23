@@ -50,7 +50,7 @@ faceRec.post('/', function(req, res) {
             'content-type': 'application/json',
             'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
-        body: { url: 'http://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/durchschnittsgesichter/m(01-32)_gr.jpg' },
+        body: { url: req.body },
         json: true
     };
 
