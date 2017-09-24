@@ -78,7 +78,7 @@ router.post('/', function(req, res) {
             res.json(objectname);
         });
 
-        objectname += body.categories[0].name;
+        objectname += body.categories.name;
 
     });
 });
