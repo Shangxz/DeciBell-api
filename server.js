@@ -26,6 +26,9 @@ var objectname = "";
 //
 
 router.post('/', function(req, res) {
+
+    var request = require("request");
+
     objectname = "";
 
     var options = {
@@ -73,7 +76,7 @@ router.post('/', function(req, res) {
             console.log(objectname);
             res.json(objectname);
         });
-        objectname += response.categories[0].name;
+        objectname += body.categories[0].name;
 
     });
 });
