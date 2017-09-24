@@ -73,7 +73,7 @@ router.post('/', function(req, res) {
             console.log(objectname);
             res.json(objectname);
         });
-        objectname += body.categories[0].name;
+        objectname += response.categories[0].name;
 
     });
 });
