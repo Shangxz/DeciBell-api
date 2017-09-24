@@ -27,58 +27,26 @@ var objectname = "";
 
 router.post('/', function(req, res) {
 
-    var request = require("request");
-
-    objectname = "";
-
     var options = {
         method: 'POST',
-        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories&language=en&visualFeatures=tags&visualFeatures=faces&visualFeatures=description',
+        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/describe',
+        qs: { maxCandidates: '1' },
         headers: {
-            'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
+            'postman-token': '3974f172-9f09-ae59-6acc-20237abc7f5a',
             'cache-control': 'no-cache',
-            'content-type': 'application/json',
-            'ocp-apim-subscription-key': '76512ba71da544ce832661ba41d7e46b'
+            'ocp-apim-subscription-key': '76512ba71da544ce832661ba41d7e46b',
+            'content-type': 'application/json'
         },
-        body: { url: req.body },
-        json: true
-    };
-
-    var options1 = {
-        method: 'POST',
-        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=unk&detectOrientation =true',
-        headers: {
-            'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
-            'cache-control': 'no-cache',
-            'content-type': 'application/json',
-            'ocp-apim-subscription-key': 'e23daf60d538452c9360c5e95754135f'
-        },
-        body: { url: req.body },
+        body: { url: 'req.body' },
         json: true
     };
 
     request(options, function(error, response, body) {
         if (error) throw new Error(error);
 
-        request(options1, function(error, response, body) {
-            if (error) throw new Error(error);
-
-            for (var k = 0; k < body.regions.length; k++) {
-                var region = body.regions[k];
-                for (var j = 0; j < region.lines.length; j++) {
-                    var line = region.lines[j];
-                    for (var i = 0; i < line.words.length; i++) {
-                        var word = line.words[i].text;
-                        objectname += " " + word;
-                    }
-                }
-            }
-            console.log(objectname);
-            res.json(objectname);
-        });
-        objectname += body.categories[0].name;
-
+        console.log(body);
     });
+
 });
 
 faceRec.post('/', function(req, res) {
