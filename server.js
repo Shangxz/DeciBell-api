@@ -27,17 +27,19 @@ var objectname = "";
 
 router.post('/', function(req, res) {
 
+    var request = require("request");
+
     var options = {
         method: 'POST',
         url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/describe',
         qs: { maxCandidates: '1' },
         headers: {
-            'postman-token': '3974f172-9f09-ae59-6acc-20237abc7f5a',
+            'postman-token': 'b0bcc72d-74ff-13ea-8112-5e260eec6208',
             'cache-control': 'no-cache',
             'ocp-apim-subscription-key': '76512ba71da544ce832661ba41d7e46b',
             'content-type': 'application/json'
         },
-        body: { url: 'req.body' },
+        body: { url: req.body.url },
         json: true
     };
 
@@ -45,6 +47,9 @@ router.post('/', function(req, res) {
         if (error) throw new Error(error);
 
         console.log(body);
+        objectname = body.description.captions[0].text;
+        console.log(objectname);
+        res.json(objectname);
     });
 
 });
