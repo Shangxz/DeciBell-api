@@ -30,7 +30,7 @@ router.post('/', function(req, res) {
 
     var options = {
         method: 'POST',
-        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories&language=en',
+        url: 'ttps://westus.api.cognitive.microsoft.com/vision/v1.0/analyze',
         qs: {
             visualFeatures: 'Categories,tags,faces,description',
             language: 'en'
@@ -39,7 +39,7 @@ router.post('/', function(req, res) {
             'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
             'cache-control': 'no-cache',
             'content-type': 'application/json',
-            'ocp-apim-subscription-key': 'e23daf60d538452c9360c5e95754135f'
+            'ocp-apim-subscription-key': '76512ba71da544ce832661ba41d7e46b'
         },
         body: { url: req.body },
         json: true
