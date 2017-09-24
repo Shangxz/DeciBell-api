@@ -20,6 +20,7 @@ var port = process.env.PORT || 8080; // set our port
 // =============================================================================
 var router = express.Router(); // get an instance of the express Router
 var faceRec = express.Router();
+var feeling = express.Router();
 
 
 var objectname = "";
@@ -40,7 +41,7 @@ router.post('/', function(req, res) {
             'ocp-apim-subscription-key': '76512ba71da544ce832661ba41d7e46b',
             'content-type': 'application/json'
         },
-        body: { url: req.body.url },
+        body: { req },
         json: true
     };
 
@@ -51,8 +52,9 @@ router.post('/', function(req, res) {
         objectname = body.description.captions[0].text;
         console.log(objectname);
         for (var i = 0; i < body.description.tags.length; i++) {
-            text_for_analysis += body.description.tags[1];
+            text_for_analysis += body.description.tags[i] + " ";
         }
+        console.log(text_for_analysis)
 
         res.json(objectname);
     });
@@ -80,7 +82,7 @@ faceRec.post('/', function(req, res) {
             'content-type': 'application/json',
             'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
-        body: { url: req.body.url },
+        body: { req },
         json: true
     };
 
@@ -93,11 +95,70 @@ faceRec.post('/', function(req, res) {
 
 });
 
+feeling.post('/', function(req, res) {
+    var request = require("request");
+    var temp = "";
+    console.log(req.body.documents[0].text);
 
+    var options = {
+        method: 'POST',
+        url: 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases',
+        headers: {
+            'postman-token': 'aafe0a3f-0a19-a84b-a296-d780744c526c',
+            'cache-control': 'no-cache',
+            'ocp-apim-subscription-key': '5de69cdccacd4906ac1ff0f2100ac8a8',
+            'content-type': 'application/json'
+        },
+        body: {
+            documents: [{
+                language: 'en',
+                id: 'temp',
+                text: req.body.documents[0].text
+            }]
+        },
+        json: true
+    };
+
+    var options2 = {
+        method: 'POST',
+        url: 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment',
+        headers: {
+            'postman-token': 'd6829747-3af4-446b-651b-9300c492269f',
+            'cache-control': 'no-cache',
+            'content-type': 'application/json',
+            'ocp-apim-subscription-key': '5de69cdccacd4906ac1ff0f2100ac8a8'
+        },
+        body: {
+            documents: [{
+                language: 'en',
+                id: 'temp',
+                text: req.body.documents[0].text
+            }]
+        },
+        json: true
+    };
+
+
+    request(options, function(error, response, body) {
+        if (error) throw new Error(error);
+
+        request(options2, function(error, response, body1) {
+            if (error) throw new Error(error);
+            temp += body1.documents[0].score;
+            console.log(body1.documents[0].score);
+
+        });
+
+        console.log(body.documents[0].keyPhrases);
+        temp += body.documents[0].keyPhrases;
+        res.json(temp);
+    });
+
+});
 
 app.use('/api', router);
 app.use('/face', faceRec);
-
+app.use('/text', feeling);
 
 // START THE SERVER
 // =============================================================================
