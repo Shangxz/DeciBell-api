@@ -42,9 +42,9 @@ router.post('/', function(req, res) {
             'postman-token': 'b0bcc72d-74ff-13ea-8112-5e260eec6208',
             'cache-control': 'no-cache',
             'ocp-apim-subscription-key': '76512ba71da544ce832661ba41d7e46b',
-            'content-type': 'application/octect-stream'
+            'content-type': 'application/json'
         },
-        body: { req },
+        body: { url: req.body.url },
         json: true
     };
 
@@ -82,10 +82,10 @@ faceRec.post('/', function(req, res) {
         headers: {
             'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
             'cache-control': 'no-cache',
-            'content-type': 'string',
+            'content-type': 'json',
             'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
-        body: { req },
+        body: { url: req.body.url },
         json: true
     };
 
@@ -141,7 +141,6 @@ feeling.post('/', function(req, res) {
         json: true
     };
 
-
     request(options, function(error, response, body) {
         if (error) throw new Error(error);
 
@@ -149,14 +148,12 @@ feeling.post('/', function(req, res) {
             if (error) throw new Error(error);
             temp += body1.documents[0].score;
             console.log(body1.documents[0].score);
-
         });
 
         console.log(body.documents[0].keyPhrases);
         temp += body.documents[0].keyPhrases;
         res.json(temp);
     });
-
 });
 
 app.use('/api', router);
