@@ -35,38 +35,6 @@ config.documents = {
             "county": "King",
             "city": "Seattle"
         }
-    },
-    "Wakefield": {
-        "id": "Wakefield.7",
-        "parents": [{
-            "familyName": "Wakefield",
-            "firstName": "Robin"
-        }, {
-            "familyName": "Miller",
-            "firstName": "Ben"
-        }],
-        "children": [{
-            "familyName": "Merriam",
-            "firstName": "Jesse",
-            "gender": "female",
-            "grade": 8,
-            "pets": [{
-                "givenName": "Goofy"
-            }, {
-                "givenName": "Shadow"
-            }]
-        }, {
-            "familyName": "Miller",
-            "firstName": "Lisa",
-            "gender": "female",
-            "grade": 1
-        }],
-        "address": {
-            "state": "NY",
-            "county": "Manhattan",
-            "city": "NY"
-        },
-        "isRegistered": false
     }
 };
 
