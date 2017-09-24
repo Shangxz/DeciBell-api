@@ -39,7 +39,7 @@ router.post('/', function(req, res) {
             'postman-token': 'b0bcc72d-74ff-13ea-8112-5e260eec6208',
             'cache-control': 'no-cache',
             'ocp-apim-subscription-key': '76512ba71da544ce832661ba41d7e46b',
-            'content-type': 'application/json'
+            'content-type': 'application/octect-stream'
         },
         body: { req },
         json: true
@@ -79,7 +79,7 @@ faceRec.post('/', function(req, res) {
         headers: {
             'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
             'cache-control': 'no-cache',
-            'content-type': 'application/json',
+            'content-type': 'application/octect-stream',
             'ocp-apim-subscription-key': '60c7f169fbe24c12b5990a8916315bd7'
         },
         body: { req },
