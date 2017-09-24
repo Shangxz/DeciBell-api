@@ -30,7 +30,7 @@ router.post('/', function(req, res) {
 
     var options = {
         method: 'POST',
-        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze',
+        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories&language=en',
         qs: {
             visualFeatures: 'Categories,tags,faces,description',
             language: 'en'
