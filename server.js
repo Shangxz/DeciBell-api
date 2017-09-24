@@ -68,7 +68,7 @@ faceRec.post('/', function(req, res) {
 
     // console.log("Hello");
 
-    console.log(req.body.url);
+    //console.log(req.body.url);
 
     var request = require("request");
 
