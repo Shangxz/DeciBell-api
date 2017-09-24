@@ -23,6 +23,7 @@ var faceRec = express.Router();
 
 
 var objectname = "";
+var text_for_analysis = "";
 //
 
 router.post('/', function(req, res) {
@@ -49,6 +50,10 @@ router.post('/', function(req, res) {
         console.log(body);
         objectname = body.description.captions[0].text;
         console.log(objectname);
+        for (var i = 0; i < body.description.tags.length; i++) {
+            text_for_analysis += body.description.tags[1];
+        }
+
         res.json(objectname);
     });
 
@@ -88,8 +93,11 @@ faceRec.post('/', function(req, res) {
 
 });
 
+
+
 app.use('/api', router);
 app.use('/face', faceRec);
+
 
 // START THE SERVER
 // =============================================================================
