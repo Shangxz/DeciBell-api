@@ -4,6 +4,7 @@ var app = express(); // define our app using express
 var bodyParser = require('body-parser');
 var http = require('http');
 var request = require("request");
+app.use(express.bodyParser({ limit: '50mb' }));
 
 //const FaceApi = require('node-mscs-face')
 
