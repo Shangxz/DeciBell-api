@@ -30,11 +30,7 @@ router.post('/', function(req, res) {
 
     var options = {
         method: 'POST',
-        url: 'ttps://westus.api.cognitive.microsoft.com/vision/v1.0/analyze',
-        qs: {
-            visualFeatures: 'Categories,tags,faces,description',
-            language: 'en'
-        },
+        url: 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories&language=en&visualFeatures=tags&visualFeatures=faces&visualFeatures=description',
         headers: {
             'postman-token': '306ef2f3-2ccf-128b-b975-d7fef6d4d8ff',
             'cache-control': 'no-cache',
