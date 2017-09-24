@@ -77,7 +77,6 @@ router.post('/', function(req, res) {
             console.log(objectname);
             res.json(objectname);
         });
-        console.log(response.categories);
         objectname += body.categories[0].name;
 
     });
